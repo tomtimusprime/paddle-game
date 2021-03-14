@@ -15,7 +15,14 @@ window.onload = function () {
 
 const updateAll = () => {
     ballX += ballSpeedX;
+    ballY += ballSpeedY;
     
+    if(ballY < 0) {
+        ballSpeedY *= -1;
+    }
+    if(ballY > canvas.height) {
+        ballSpeedY *= -1;
+    }
     if(ballX < 0) {
         ballSpeedX *= -1;
     }
@@ -28,7 +35,7 @@ const updateAll = () => {
     //Create the ball
     canvasContext.fillStyle = "white";
     canvasContext.beginPath();
-    canvasContext.arc(ballX, 100, 10, 0, Math.PI * 2, true);
+    canvasContext.arc(ballX, ballY, 10, 0, Math.PI * 2, true);
     canvasContext.fill();
 
 }
