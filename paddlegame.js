@@ -1,5 +1,8 @@
 let canvas, canvasContext;
 let ballX = 75;
+let ballSpeedX = 5;
+let ballY = 75;
+let ballSpeedY = 7;
 
 window.onload = function () {
     canvas = document.getElementById('gameCanvas');
@@ -11,7 +14,14 @@ window.onload = function () {
 }
 
 const updateAll = () => {
-    ballX++;
+    ballX += ballSpeedX;
+    
+    if(ballX < 0) {
+        ballSpeedX *= -1;
+    }
+    if(ballX > canvas.width) {
+        ballSpeedX *= -1;
+    }
     //Create the background
     canvasContext.fillStyle = "black";
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
