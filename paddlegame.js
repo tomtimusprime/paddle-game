@@ -13,7 +13,12 @@ window.onload = function () {
 
 }
 
-const updateAll = () => {
+function updateAll() {
+    moveAll();
+    drawAll();
+}
+
+const moveAll = () => {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
     
@@ -29,6 +34,9 @@ const updateAll = () => {
     if(ballX > canvas.width) {
         ballSpeedX *= -1;
     }
+}
+
+function drawAll() {
     //Create the background
     canvasContext.fillStyle = "black";
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
